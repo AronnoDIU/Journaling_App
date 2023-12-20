@@ -41,7 +41,7 @@ public class JournalingApp {
                     passwordProtectEntries(userInput);
                     break;
                 case 8:
-                    System.out.println("Exiting the enhanced journaling app. Goodbye!");
+                    System.out.println("Exiting the Journaling Application. Goodbye!");
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice. Please enter a valid option.");
@@ -75,7 +75,7 @@ public class JournalingApp {
         }
 
         String timestamp = DATE_FORMAT.format(new Date());
-        String entry = "\n\n---\n" + timestamp + "\n" + entryContent.toString();
+        String entry = "\n\n---\n" + timestamp + "\n" + entryContent;
 
         try (FileWriter writer = new FileWriter(JOURNAL_FILE, true)) {
             writer.write(entry);
@@ -121,7 +121,7 @@ public class JournalingApp {
                         updatedContent.append(updatedLine).append("\n");
                     }
 
-                    String updatedEntry = "\n\n---\n" + timestampToEdit + "\n" + updatedContent.toString();
+                    String updatedEntry = "\n\n---\n" + timestampToEdit + "\n" + updatedContent;
                     writer.write(updatedEntry);
                     entryFound = true;
                     System.out.println("\nJournal entry updated successfully!");
